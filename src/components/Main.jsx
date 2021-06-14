@@ -19,7 +19,7 @@ class Main extends React.Component{
                 </div>
                 <img src="https://i.blogs.es/575d4f/android/840_560.jpg" alt="" />
                 <div className="main__products">
-                    <BoardProducts/>
+                    <BoardProducts products_url="products" />
                 </div>
             </section>
         )

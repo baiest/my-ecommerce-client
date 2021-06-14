@@ -1,5 +1,5 @@
 .products {
-    padding: 0 auto;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -10,6 +10,13 @@
     height: 350px;
     margin: 10px;
     list-style: none;
+    cursor: pointer;
+}
+
+.products li:hover .product__card {
+    transform: scale(1.2);
+    box-shadow: 0px 10px 30px black;
+    transition: transform 0.2s ease;
 }
 
 @media (max-width: 720px) {

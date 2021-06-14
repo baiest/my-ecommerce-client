@@ -3,6 +3,7 @@ import React from 'react'
 import data_ecommerce from '../data_ecommerce.json'
 import Navbar from './Navbar'
 import Main from './Main'
+import Category from './Category'
 
 class App extends React.Component{
   constructor(props){
@@ -19,8 +20,9 @@ class App extends React.Component{
   render() {
     const {name, lastname} = this.state.user
     return (
-      <div>
+      <div className="app">
         <Navbar ecommerce_name={this.state.name} name={name} lastname={lastname}/>
+        <Category />
         <div className="container">
           <Main />
         </div>

@@ -1,7 +1,24 @@
+.app {
+    position: relative;
+}
+
 .container {
     padding: 25px 0;
-    width: 95%;
+    width: 60%;
     max-width: 2700px;
     margin: 50px auto;
     background: var(--background);
+    position: absolute;
+    right: 10%;
+    left: 20%;
+}
+
+@media (max-width: 720px) {
+    .app {
+        display: block;
+    }
+    .container {
+        width: 90%;
+        position: unset;
+    }
 }

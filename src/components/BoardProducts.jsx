@@ -5,6 +5,7 @@ import axios from 'axios'
 import '../assets/css/BoardProducts.css'
 
 import ProductCard from './ProductCard'
+import Error from './general/Error'
 
 class Main extends React.Component{
     constructor(props){
@@ -18,17 +19,17 @@ class Main extends React.Component{
 
     async componentDidMount(){
         try{
-            const response = await axios(URL.api + 'products')
+            const response = await axios(URL.api + this.props.products_url)
             this.setState({products: response.data, loading: false})
         }catch(error){
-            this.setState({error: 'Ah ocurrido un error', loading: false})
+            this.setState({error: error.message, loading: false})
         }
     }
     
     render(){
         if (this.state.error)
         {
-            return <span>{this.state.error}</span>
+            return <Error message={this.state.error}/>
         } 
         if (this.state.loading)
         {
