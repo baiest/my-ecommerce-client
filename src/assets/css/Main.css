@@ -1,0 +1,47 @@
+.main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+}
+
+.main__find {
+    grid-column: 1/ 2;
+    grid-row: 1;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.main__find input {
+    width: 100%;
+    min-width: 250px;
+    height: 35px;
+    font-size: 30px;
+    padding: 5px;
+    border: 1px solid #000;
+    border-radius: 0;
+}
+
+.main__find button {
+    size: 25px;
+    border: 1px solid #000;
+    border-radius: 0;
+}
+
+.main__products {
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    margin: 0;
+}
+
+.main>img {
+    grid-column: 3 / 4;
+    grid-row: 2 / 4;
+    width: 100%;
+    min-width: 300px;
+}
+
+@media (max-width: 720px) {
+    .main {
+        display: block;
+    }
+}

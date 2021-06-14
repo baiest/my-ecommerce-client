@@ -1,0 +1,28 @@
+.navbar {
+    background: var(--navbar);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.navbar__hero {
+    margin: 0;
+}
+
+.navabar__user {
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navabar__user img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.navabar__user-info {}
