@@ -11,15 +11,21 @@ class Main extends React.Component{
     constructor(props){
         super(props)
         this.state = {
+            products_url: URL.api + this.props.products_url,
             products: [],
             loading: true,
             error: ''
         }
+        this.get_products = this.get_products.bind(this)
     }
 
-    async componentDidMount(){
+    componentDidMount(){
+        this.get_products()
+    }
+
+    async get_products(){
         try{
-            const response = await axios(URL.api + this.props.products_url)
+            const response = await axios(this.state.products_url)
             this.setState({products: response.data, loading: false})
         }catch(error){
             this.setState({error: error.message, loading: false})

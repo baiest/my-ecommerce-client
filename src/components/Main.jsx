@@ -1,6 +1,6 @@
 import React from 'react'
 import BoardProducts from './BoardProducts'
-
+import { Switch, Route } from 'react-router-dom'
 import '../assets/css/Main.css'
 
 class Main extends React.Component{
@@ -19,7 +19,19 @@ class Main extends React.Component{
                 </div>
                 <img src="https://i.blogs.es/575d4f/android/840_560.jpg" alt="" />
                 <div className="main__products">
-                    <BoardProducts products_url="products" />
+                    <Switch>
+                        <Route exact path='/' render={() => 
+                            <BoardProducts products_url={`products/category/1`} />}
+                        />
+                        {
+                           this.props.routes.map(r => {
+                               //POR CADA CATEGORIA SE CREA UNA RUTA, Y LA PETICION ESTA DADA POR EL ID DE LA CATEGORIA
+                               return <Route key= {r.route_id} exact path={`/${r.route_name}`}
+                               render={() => <BoardProducts products_url={`products/category/${r.route_id}`} />}
+                               />
+                           })
+                        }
+                    </Switch>
                 </div>
             </section>
         )

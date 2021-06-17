@@ -12,19 +12,23 @@ class App extends React.Component{
       name: data_ecommerce.name,
       user: {
         name: 'User',
-        lastname: ''
-      }
+        lastname: '',
+      },
+      routes: [] //ARREGLO DE RUTAS PARA SEPARAR PRODUCTOS POR CATEGORIA
     }
+    this.handleCategory = this.handleCategory.bind(this)
   }
-  
+  handleCategory(category_routes){
+    this.setState({routes: category_routes}) //LAS RUTAS ESTAN COMPUESTAS POR route_id Y route_name
+  }
   render() {
     const {name, lastname} = this.state.user
     return (
       <div className="app">
         <Navbar ecommerce_name={this.state.name} name={name} lastname={lastname}/>
-        <Category />
+        <Category category_selected= {this.handleCategory}/>
         <div className="container">
-          <Main />
+          <Main routes={this.state.routes} route={this.state.route}/>
         </div>
       </div>
     )
