@@ -49,8 +49,8 @@ class Category extends React.Component{
         return (
             <ul className="category__options">
                 {this.state.categories.map(c => (
-                    <Link  className="category__item" to={`${this.normalizaRoute(c.category_name)}`}>
-                    <li key={c.category_id}>{c.category_name}</li>
+                <Link key={c.category_id}  className="category__item" to={`/category/${this.normalizaRoute(c.category_name)}`}>
+                    <li>{c.category_name}</li>
                 </Link>
                 ))}
             </ul>
@@ -60,6 +60,7 @@ class Category extends React.Component{
     render(){
         return (
             <section className="category">
+                <h2 className="category__hero">{this.props.ecommerce_name}</h2>
                 {this.categories()}
             </section>
         )

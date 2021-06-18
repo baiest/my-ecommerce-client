@@ -4,6 +4,9 @@ import data_ecommerce from '../data_ecommerce.json'
 import Navbar from './Navbar'
 import Main from './Main'
 import Category from './Category'
+import {Route, Switch} from 'react-router-dom'
+import ProductInformation from './ProductInformation'
+
 
 class App extends React.Component{
   constructor(props){
@@ -14,10 +17,11 @@ class App extends React.Component{
         name: 'User',
         lastname: '',
       },
-      routes: [] //ARREGLO DE RUTAS PARA SEPARAR PRODUCTOS POR CATEGORIA
+      routes: [], //ARREGLO DE RUTAS PARA SEPARAR PRODUCTOS POR CATEGORIA
     }
-    this.handleCategory = this.handleCategory.bind(this)
+    this.handleCategory = this.handleCategory.bind(this)  
   }
+  
   handleCategory(category_routes){
     this.setState({routes: category_routes}) //LAS RUTAS ESTAN COMPUESTAS POR route_id Y route_name
   }
@@ -26,10 +30,17 @@ class App extends React.Component{
     return (
       <div className="app">
         <Navbar ecommerce_name={this.state.name} name={name} lastname={lastname}/>
-        <Category category_selected= {this.handleCategory}/>
-        <div className="container">
-          <Main routes={this.state.routes} route={this.state.route}/>
-        </div>
+        <Switch>
+            <Route exact path={['/', '/category/:name_category']} render={() =>  
+              <React.Fragment>
+                <Category ecommerce_name={this.state.name} category_selected= {this.handleCategory}/>
+                <div className="container">
+                  <Main routes={this.state.routes}/>
+                </div>
+              </React.Fragment>
+              } />
+            <Route exact path='/product/:id' render={({match}) =>  <ProductInformation product_id={match.params.id} />} />)
+        </Switch>
       </div>
     )
   }
