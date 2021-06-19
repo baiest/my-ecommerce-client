@@ -1,5 +1,5 @@
 import React from 'react'
-import { URL }from '../providers/api'
+import { API_PRODUCTS_CATEGORY, API_PRODUCTS }from '../providers/api'
 import axios from 'axios'
 
 import '../assets/css/BoardProducts.css'
@@ -11,11 +11,14 @@ class Main extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            products_url: URL.api + this.props.products_url,
+            products_url: this.props.products_url ? 
+            API_PRODUCTS_CATEGORY(this.props.products_url) :
+            API_PRODUCTS,
             products: [],
             loading: true,
             error: ''
         }
+        this.source = axios.CancelToken.source();
         this.get_products = this.get_products.bind(this)
     }
 
@@ -23,12 +26,22 @@ class Main extends React.Component{
         this.get_products()
     }
 
+    componentWillUnmount(){
+        if (this.source) {
+            this.source.cancel();
+        }
+    }
+
     async get_products(){
         try{
-            const response = await axios(this.state.products_url)
+            const response = await axios(this.state.products_url, {
+                cancelToken: this.source.token
+            })
             this.setState({products: response.data, loading: false})
         }catch(error){
-            this.setState({error: error.message, loading: false})
+            if(!axios.isCancel(error) && error.code !== 'ECONNABORTED'){
+                this.setState({error: error.message, loading: false})
+            }
         }
     }
     

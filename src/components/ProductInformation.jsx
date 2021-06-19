@@ -1,7 +1,7 @@
 import React from 'react' 
 import axios from 'axios'
 import Error from './general/Error'
-import {URL} from '../providers/api'
+import {API_PRODUCT_ID, API_PRODUCT_IMAGE } from '../providers/api'
 import Button from './general/Button'
 import '../assets/css/ProductInformation.css'
 class ProductInformation extends React.Component{
@@ -14,24 +14,34 @@ class ProductInformation extends React.Component{
             image: '',
             checked: true
         }
+        this.source = axios.CancelToken.source();
         this.changeImage = this.changeImage.bind(this)
     }
     
     async componentDidMount(){
         try{
-            const response = await axios(URL.api + `products/${this.props.product_id}`)
+            const response = await axios(API_PRODUCT_ID(this.props.product_id), {
+                    cancelToken: this.source.token
+                })
+
             this.setState({
                 product: response.data,
-                image: URL.api + `products/img/${response.data.product_id}/${response.data.images[0]}`,
+                image: API_PRODUCT_IMAGE(response.data.product_id, response.data.images[0]),
                 loading: false})
-            console.log(this.state.product)
         }catch(error){
-            this.setState({error: error.message, loading: false})
+            if(!axios.isCancel(error) && error.code !== 'ECONNABORTED'){
+                this.setState({error: error.message, loading: false})
+            }
+        }
+    }
+
+    componentWillUnmount(){
+        if (this.source) {
+            this.source.cancel();
         }
     }
 
     changeImage(dir_image){
-        console.log(this.state)
         this.setState({ image: dir_image })
     }
 
@@ -42,14 +52,14 @@ class ProductInformation extends React.Component{
             this.state.product.images?.map( (image, key) => (
                 <React.Fragment key={key} >
                     <input type="radio" 
-                    onChange={() => this.changeImage(URL.api + `products/img/${product.product_id}/${image}`)} 
+                    onChange={() => this.changeImage(API_PRODUCT_IMAGE(product.product_id, image))} 
                     id={`product${image}`} 
                     name="product" 
                     value={product.product_id} 
                     defaultChecked={key === 0}
                     />
                     <label className='product__mini' htmlFor={`product${image}`}>
-                        <img src={URL.api + `products/img/${product.product_id}/${image}`} alt=""/>
+                        <img src={API_PRODUCT_IMAGE(product.product_id, image)} alt=""/>
                     </label>
                 </React.Fragment>
             ))

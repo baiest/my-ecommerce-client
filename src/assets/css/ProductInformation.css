@@ -3,7 +3,6 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    max-height: 700px;
     position: relative;
 }
 
@@ -52,15 +51,12 @@
 }
 
 .product__information {
-    display: flex;
     padding: 20px;
-    flex-direction: column;
     background: lightgreen;
-    justify-content: space-between;
-    align-items: center;
     height: 50%;
     position: sticky;
     top: 0;
+    text-align: center;
 }
 
 @media (max-width: 720px) {

@@ -1,5 +1,5 @@
 import React from 'react' 
-import {URL} from '../providers/api'
+import { API_CATEGORIES } from '../providers/api'
 import axios from 'axios'
 import Error from './general/Error'
 import { Link } from 'react-router-dom'
@@ -13,13 +13,15 @@ class Category extends React.Component{
             loading: true,
             error: ''
         }
-        this.cancelTokenSource = axios.CancelToken.source();
+        this.source = axios.CancelToken.source();
         this.normalizaRoute = this.normalizaRoute.bind(this)
     }
 
     async componentDidMount(){
         try{
-            const response = await axios(URL.api + 'categories')
+            const response = await axios(API_CATEGORIES,  {
+                cancelToken: this.source.token
+            })
             this.setState({categories: response.data, loading: false})
             
             const category_routes = []
@@ -30,16 +32,20 @@ class Category extends React.Component{
             }
             this.props.category_selected(category_routes)
         }catch(error){
-            this.setState({error: error.message, loading: false})
+            if(!axios.isCancel(error) && error.code !== 'ECONNABORTED'){
+                this.setState({error: error.message, loading: false})
+            }
+        }
+    }
+
+    componentWillUnmount(){
+        if (this.source) {
+            this.source.cancel();
         }
     }
 
     normalizaRoute(route){
         return route.toLowerCase().replace(' ', ',')
-    }
-
-    componentWillUnmount(){
-        this.cancelTokenSource.cancel()
     }
 
     categories() {

@@ -21,13 +21,13 @@ class Main extends React.Component{
                 <div className="main__products">
                     <Switch>
                         <Route exact path='/'
-                            render={() => <BoardProducts products_url={`products/`} />}
+                            render={() => <BoardProducts />}
                             />
                         {
                             this.props.routes.map(r => {
                                 //POR CADA CATEGORIA SE CREA UNA RUTA, Y LA PETICION ESTA DADA POR EL ID DE LA CATEGORIA
                                 return <Route key= {r.route_id} exact path={`/category/${r.route_name}`}
-                                render={() => <BoardProducts products_url={`products/category/${r.route_id}`} />}
+                                render={() => <BoardProducts products_url={r.route_id} />}
                                 />
                             })
                         }
