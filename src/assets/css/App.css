@@ -8,9 +8,9 @@
     max-width: 2700px;
     margin: 50px auto;
     background: var(--background);
-    position: absolute;
-    right: 10%;
-    left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media (max-width: 720px) {

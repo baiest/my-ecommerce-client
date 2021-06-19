@@ -1,0 +1,32 @@
+.button {
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 8px;
+    margin: 10px;
+    width: 150px;
+    border: 2px solid transparent;
+}
+
+.button:hover {
+    background: var(--background);
+    cursor: pointer;
+    color: black;
+}
+
+.btn-green {
+    background: green;
+    color: var(--text);
+}
+
+.btn-green:hover {
+    border: 2px solid green;
+}
+
+.btn-blue {
+    background: lightskyblue;
+    color: var(--text);
+}
+
+.btn-blue:hover {
+    border: 2px solid lightskyblue;
+}

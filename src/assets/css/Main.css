@@ -2,6 +2,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-content: center;
+    margin: 10px auto;
+    width: 120%;
+    padding: 0 50px;
 }
 
 .main__find {
@@ -43,5 +46,7 @@
 @media (max-width: 720px) {
     .main {
         display: block;
+        width: 100%;
+        padding: 0;
     }
 }

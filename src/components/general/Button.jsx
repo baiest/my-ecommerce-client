@@ -1,7 +1,7 @@
 import React from 'react'
-
+import '../../assets/css/Button.css'
 const Button = (props) => (
-    <button>
+    <button className={`button ${props.className}`} type='button'>
         {props.text}
     </button>
 )
