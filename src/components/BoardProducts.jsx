@@ -40,7 +40,7 @@ class Main extends React.Component{
             this.setState({products: response.data, loading: false})
         }catch(error){
             if(!axios.isCancel(error) && error.code !== 'ECONNABORTED'){
-                this.setState({error: error.message, loading: false})
+                this.setState({error: error.response?.data.error || error.message, loading: false})
             }
         }
     }

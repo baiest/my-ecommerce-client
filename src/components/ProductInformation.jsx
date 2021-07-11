@@ -77,6 +77,7 @@ class ProductInformation extends React.Component{
         }
         
         const { product } = this.state
+        const  numberFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
         return <section className="container">
                 <div className="product__main">
                     <div className="product__images">
@@ -85,7 +86,7 @@ class ProductInformation extends React.Component{
                     </div>
                     <div className="product__information">
                         <h2>{product.product_name}</h2>
-                        <p>${product.product_price}</p>
+                        <p>{numberFormat.format(product.product_price)}</p>
                         <Button className="btn-green" text="Comprar" bg="green" color="#fff"/>
                         <Button className="btn-blue" text="Agregar al carrito"/>
                     </div>
