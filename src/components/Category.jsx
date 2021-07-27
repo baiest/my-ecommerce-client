@@ -66,7 +66,6 @@ class Category extends React.Component{
     render(){
         return (
             <section className="category">
-                <h2 className="category__hero">{this.props.ecommerce_name}</h2>
                 {this.categories()}
             </section>
         )

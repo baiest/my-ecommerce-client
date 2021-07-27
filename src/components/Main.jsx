@@ -13,15 +13,10 @@ class Main extends React.Component{
     render(){
         return(
             <section className="main">
-                <div className="main__find">
-                    <input type="text" />
-                    <button>buscar</button>
-                </div>
-                <img src="https://i.blogs.es/575d4f/android/840_560.jpg" alt="" />
                 <div className="main__products">
                     <Switch>
                         <Route exact path='/'
-                            render={() => <BoardProducts />}
+                            render={() => <h1>Hola aqui ira un hero y categorias</h1>}
                             />
                         {
                             this.props.routes.map(r => {

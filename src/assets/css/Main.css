@@ -1,15 +1,9 @@
 .main {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-content: center;
-    margin: 10px auto;
-    width: 120%;
     padding: 0 50px;
+    display: inline-block;
 }
 
 .main__find {
-    grid-column: 1/ 2;
-    grid-row: 1;
     display: flex;
     flex-wrap: nowrap;
 }
@@ -31,17 +25,10 @@
 }
 
 .main__products {
-    grid-column: 1 / 3;
-    grid-row: 2 / 4;
     margin: 0;
 }
 
-.main>img {
-    grid-column: 3 / 4;
-    grid-row: 2 / 4;
-    width: 100%;
-    min-width: 300px;
-}
+.main>img {}
 
 @media (max-width: 720px) {
     .main {

@@ -3,7 +3,7 @@ import React from 'react'
 import data_ecommerce from '../data_ecommerce.json'
 import Navbar from './Navbar'
 import Main from './Main'
-import Category from './Category'
+import Search from './Search'
 import {Route, Switch} from 'react-router-dom'
 import ProductInformation from './ProductInformation'
 
@@ -29,11 +29,15 @@ class App extends React.Component{
     const {name, lastname} = this.state.user
     return (
       <div className="app">
-        <Navbar ecommerce_name={this.state.name} name={name} lastname={lastname}/>
+        <Navbar 
+        ecommerce_name={this.state.name} 
+        name={name} 
+        lastname={lastname}
+        category_selected={this.handleCategory}/>
+        <Search/>
         <Switch>
             <Route exact path={['/', '/category/:name_category']} render={() =>  
               <React.Fragment>
-                <Category ecommerce_name={this.state.name} category_selected= {this.handleCategory}/>
                 <div className="container">
                   <Main routes={this.state.routes}/>
                 </div>

@@ -4,14 +4,12 @@
     color: var(--text);
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    position: sticky;
-    z-index: 1;
 }
 
 .navbar__hero {
-    margin: 0;
+    margin: 20px;
 }
 
 .navabar__user {

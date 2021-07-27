@@ -1,24 +1,10 @@
-.app {
-    position: relative;
-}
+.app {}
 
 .container {
-    padding: 25px 0;
-    width: 60%;
-    max-width: 2700px;
-    margin: 50px auto;
-    background: var(--background);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin: auto 15%;
 }
 
 @media (max-width: 720px) {
-    .app {
-        display: block;
-    }
-    .container {
-        width: 90%;
-        position: unset;
-    }
+    .app {}
+    .container {}
 }
