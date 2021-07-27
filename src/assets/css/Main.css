@@ -3,27 +3,6 @@
     display: inline-block;
 }
 
-.main__find {
-    display: flex;
-    flex-wrap: nowrap;
-}
-
-.main__find input {
-    width: 100%;
-    min-width: 250px;
-    height: 35px;
-    font-size: 30px;
-    padding: 5px;
-    border: 1px solid #000;
-    border-radius: 0;
-}
-
-.main__find button {
-    size: 25px;
-    border: 1px solid #000;
-    border-radius: 0;
-}
-
 .main__products {
     margin: 0;
 }

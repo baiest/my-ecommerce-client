@@ -11,7 +11,7 @@ const Navbar = (props) => {
                     <h1 className="navbar__hero">{props.ecommerce_name}</h1>
                 </Link>
                 <Category ecommerce_name="Nombre" category_selected= {props.category_selected}/>
-
+                <button onClick={props.handleSearch}>buscar</button>
                 <section id="user" className="navabar__user">
                     <img src={user} alt="User icon" />
                     <div className="navabar__user-info">

@@ -20,10 +20,23 @@ class App extends React.Component{
       routes: [], //ARREGLO DE RUTAS PARA SEPARAR PRODUCTOS POR CATEGORIA
     }
     this.handleCategory = this.handleCategory.bind(this)  
+    this.buttonSearch = this.buttonSearch.bind(this)  
   }
   
   handleCategory(category_routes){
     this.setState({routes: category_routes}) //LAS RUTAS ESTAN COMPUESTAS POR route_id Y route_name
+  }
+
+  buttonSearch(){
+    let search = document.getElementById('section__search')
+    if(search.classList.contains('hidden')){
+      search.classList.remove('hidden')
+      search.classList.add('search')
+    }else{
+      search.classList.add('hidden')
+      search.classList.remove('search')
+    }
+    console.log(search)
   }
   render() {
     const {name, lastname} = this.state.user
@@ -33,8 +46,9 @@ class App extends React.Component{
         ecommerce_name={this.state.name} 
         name={name} 
         lastname={lastname}
-        category_selected={this.handleCategory}/>
-        <Search/>
+        category_selected={this.handleCategory}
+        handleSearch={this.buttonSearch}/>
+        <Search id="section__search" className="hidden"/>
         <Switch>
             <Route exact path={['/', '/category/:name_category']} render={() =>  
               <React.Fragment>
