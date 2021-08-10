@@ -9,6 +9,10 @@
     display: none;
 }
 
+strong {
+    color: var(--navbar);
+}
+
 @keyframes visible {
     0% {
         transform: translateY(-200px);

@@ -19,15 +19,17 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
 }
 
 .product__card-name {
     font-size: 20px;
     text-transform: capitalize;
+    margin: 0;
 }
 
 .product__card-price {
-    font-size: 30px;
+    font-size: 25px;
+    margin: 0;
 }

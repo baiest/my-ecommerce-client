@@ -1,0 +1,52 @@
+.carousel {
+    margin: 5% 0;
+    overflow-x: auto;
+    display: flex;
+    scroll-behavior: smooth;
+    position: relative;
+    scrollbar-color: transparent transparent;
+}
+
+.carousel::-webkit-scrollbar {
+    opacity: 0;
+}
+
+.card {
+    min-width: 250px;
+    height: 350px;
+    margin-right: 40px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.control {
+    position: sticky;
+    margin: auto 0;
+    height: 50px;
+    background: var(--card);
+    color: aliceblue;
+    border: 1px solid #000;
+    outline: inherit;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back {
+    left: 3%;
+}
+
+.back::before {
+    content: '<';
+    margin: 15px;
+}
+
+.next {
+    right: 3%;
+}
+
+.next::after {
+    content: '>';
+    margin: 15px;
+}

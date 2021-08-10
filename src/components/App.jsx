@@ -50,12 +50,7 @@ class App extends React.Component{
         handleSearch={this.buttonSearch}/>
         <Search id="section__search" className="hidden"/>
         <Switch>
-            <Route exact path={['/', '/category/:name_category']} render={() =>  
-              <React.Fragment>
-                <div className="container">
-                  <Main routes={this.state.routes}/>
-                </div>
-              </React.Fragment>
+            <Route exact path={['/', '/category/:name_category']} render={() => <Main routes={this.state.routes}/>
               } />
             <Route exact path='/product/:id' render={({match}) =>  <ProductInformation product_id={match.params.id} />} />)
         </Switch>
