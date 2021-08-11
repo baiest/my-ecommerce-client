@@ -14,8 +14,8 @@ class App extends React.Component{
     this.state = {
       name: data_ecommerce.name,
       user: {
-        name: 'User',
-        lastname: '',
+        name: 'Juan',
+        lastname: 'Ballesteros',
       },
       routes: [], //ARREGLO DE RUTAS PARA SEPARAR PRODUCTOS POR CATEGORIA
     }

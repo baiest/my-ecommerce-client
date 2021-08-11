@@ -4,6 +4,10 @@
     margin: 0;
 }
 
+h2 {
+    font-size: 40px;
+}
+
 .main>img {}
 
 @media (max-width: 720px) {

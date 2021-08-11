@@ -1,4 +1,6 @@
-.app {}
+.app {
+    margin: 0 auto;
+}
 
 .container {
     margin: auto 15%;

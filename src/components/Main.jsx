@@ -66,12 +66,11 @@ class Main extends React.Component{
 
     render(){
         return(
-            <section className="main">
+            <section className="main main__products">
                     <Switch>
                         <Route exact path='/'
                             render={this.mainInformation}
                         />
-                        <div className="main__products">
                         {
                             this.props.routes.map(r => {
                                 //POR CADA CATEGORIA SE CREA UNA RUTA, Y LA PETICION ESTA DADA POR EL ID DE LA CATEGORIA
@@ -84,7 +83,6 @@ class Main extends React.Component{
                                 />
                             })
                         }
-                        </div>
                     </Switch>
             </section>
         )

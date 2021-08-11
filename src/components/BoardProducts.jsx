@@ -53,6 +53,9 @@ class Main extends React.Component{
         if (this.state.loading)
         {
             return <div className="loader"></div>            
+        }
+        if (this.state.products.length === 0){
+            return <h4>No hay productos</h4>
         } 
         return  (
         <ul className="products">

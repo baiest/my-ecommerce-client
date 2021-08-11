@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    font-size: 15px;
     margin-bottom: 20px;
 }
 
@@ -13,8 +14,14 @@
     margin: 20px;
 }
 
+.navbar__find {
+    width: 25px;
+    cursor: pointer;
+}
+
 .navabar__user {
-    width: 300px;
+    margin: 15px;
+    width: 250px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -22,9 +29,45 @@
 }
 
 .navabar__user img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    border: 1px solid #fff;
 }
 
-.navabar__user-info {}
+.navabar__user-info p {
+    margin: 0;
+}
+
+.icon {
+    display: flex;
+    position: relative;
+}
+
+.icon .number {
+    background: var(--background);
+    color: var(--navbar);
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    top: -2px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.navbar__kart {
+    width: 45px
+}
+
+.conf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar__conf {
+    width: 45px
+}

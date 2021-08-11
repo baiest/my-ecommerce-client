@@ -1,5 +1,6 @@
 import React from 'react' 
 import axios from 'axios'
+import {numberFormat} from'../utils.js'
 import Error from './general/Error'
 import {API_PRODUCT_ID, API_PRODUCT_IMAGE } from '../providers/api'
 import Button from './general/Button'
@@ -77,12 +78,11 @@ class ProductInformation extends React.Component{
         }
         
         const { product } = this.state
-        const  numberFormat = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
         return <section className="container">
                 <div className="product__main">
                     <div className="product__images">
                         {this.images_product()}
-                        <img src={this.state.image} alt="" />
+                        <img src={this.state.image} alt="main image" />
                     </div>
                     <div className="product__information">
                         <h2>{product.product_name}</h2>

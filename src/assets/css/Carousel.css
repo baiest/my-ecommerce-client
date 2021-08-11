@@ -1,5 +1,6 @@
 .carousel {
-    margin: 5% 0;
+    margin: 5% auto;
+    padding: 0 auto;
     overflow-x: auto;
     display: flex;
     scroll-behavior: smooth;
