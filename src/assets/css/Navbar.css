@@ -6,42 +6,29 @@
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 
 .navbar__hero {
     margin: 20px;
-}
-
-.navbar__find {
-    width: 25px;
-    cursor: pointer;
-}
-
-.navabar__user {
-    margin: 15px;
-    width: 250px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.navabar__user img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    border: 1px solid #fff;
-}
-
-.navabar__user-info p {
-    margin: 0;
+    font-size: 50px;
 }
 
 .icon {
     display: flex;
     position: relative;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50px;
+    transform: scale(.7);
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    opacity: .5;
 }
 
 .icon .number {
@@ -49,6 +36,7 @@
     color: var(--navbar);
     width: 20px;
     height: 20px;
+    padding: 2px;
     text-align: center;
     border-radius: 50%;
     position: absolute;
@@ -58,16 +46,66 @@
     font-weight: bold;
 }
 
-.navbar__kart {
-    width: 45px
-}
-
-.conf {
+.navabar__user {
+    margin: 15px;
+    width: 250px;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
+    position: relative;
+    border-radius: 25px;
 }
 
-.navbar__conf {
-    width: 45px
+.navabar__user>img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.navabar__user-info p {
+    margin: 0;
+}
+
+.navabar__user:hover .navbar__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(40%);
+    transition: all .5s ease-in;
+}
+
+.navbar__dropdown {
+    width: 100%;
+    opacity: 0;
+    visibility: collapse;
+    transform: translateY(-40px);
+    background: var(--navbar);
+    padding: 0;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    z-index: 1;
+    border-radius: 25px;
+    border: 1px solid var(--background);
+    padding: 15px;
+    transition: all .2s ease-out;
+}
+
+.dropdown__item {
+    cursor: pointer;
+    list-style: none;
+    margin: 5px 0;
+    display: block;
+    width: 100%;
+}
+
+.dropdown__item:hover {
+    background: var(--background);
+    color: #000;
+}
+
+.dropdown__item img {
+    width: 15px;
+    margin: 0 10px;
 }

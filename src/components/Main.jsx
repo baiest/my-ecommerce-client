@@ -77,6 +77,7 @@ class Main extends React.Component{
                                 return <Route key= {r.route_id} exact path={`/category/${r.route_name}`}
                                 render={() => 
                                 <div className="container">
+                                    <h2><strong>{r.route_name.toUpperCase()}</strong></h2>
                                     <BoardProducts products_url={r.route_id} />
                                 </div>
                                 }

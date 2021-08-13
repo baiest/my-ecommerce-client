@@ -1,10 +1,9 @@
 .search {
     display: flex;
-    flex-wrap: wrap;
-    margin: 100px;
+    width: 60%;
+    margin: 20px auto;
     justify-content: center;
     position: relative;
-    min-width: 350px;
     animation: visible 1s ease;
 }
 

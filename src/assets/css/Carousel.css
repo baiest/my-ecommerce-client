@@ -15,7 +15,7 @@
 .card {
     min-width: 250px;
     height: 350px;
-    margin-right: 40px;
+    margin: 0 50px;
 }
 
 input[type="radio"] {
@@ -25,13 +25,22 @@ input[type="radio"] {
 .control {
     position: sticky;
     margin: auto 0;
-    height: 50px;
-    background: var(--card);
+    height: 100px;
+    background: var(--navbar);
     color: aliceblue;
-    border: 1px solid #000;
+    border: 1px solid var(--background);
+    border-radius: 10px;
     outline: inherit;
     font-size: 20px;
     font-weight: bold;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.control:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform .2s ease-out;
 }
 
 .back {
@@ -40,7 +49,6 @@ input[type="radio"] {
 
 .back::before {
     content: '<';
-    margin: 15px;
 }
 
 .next {
@@ -49,5 +57,4 @@ input[type="radio"] {
 
 .next::after {
     content: '>';
-    margin: 15px;
 }

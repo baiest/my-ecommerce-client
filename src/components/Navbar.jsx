@@ -14,23 +14,41 @@ const Navbar = (props) => {
                     <h1 className="navbar__hero">{props.ecommerce_name}</h1>
                 </Link>
                 <Category ecommerce_name="Nombre" category_selected= {props.category_selected}/>
-                <img className="navbar__find" src={find} onClick={props.handleSearch} />
+                <div className="icon">
+                    <img className="navbar__find" src={find} onClick={props.handleSearch} alt="Find icon" />
+                    <span>Buscar</span>
+                </div>
+                <div className="icon">
+                    <img className="navbar__kart" src={kart} alt="Cart icon" />
+                    <span className="number">3</span>
+                    <span>Carrito</span>
+                </div>
                 <section id="user" className="navabar__user">
                     <img src={user} alt="User icon" />
                     <div className="navabar__user-info">
                         <p>{props.name}</p>
                         <p>{props.lastname}</p>
                     </div>
+                    <ul className="navbar__dropdown">
+                        <li className="dropdown__item">   
+                            <img className="navbar__conf" src={conf} alt="Configuration icon" />
+                            <span>Ajustes</span>
+                        </li>
+                        <li className="dropdown__item" >
+                        {
+                            props.cookie 
+                            ? <div onClick={props.logOut}>
+                                <img className="navbar__conf" src={conf} alt="Configuration icon" />
+                                <span>Log-Out</span>
+                            </div>
+                            : <Link to='/login' className="dropdown__item">
+                                <img className="navbar__conf" src={conf} alt="Configuration icon" />
+                                <span>Login</span>
+                            </Link>
+                        }
+                        </li>
+                    </ul>
                 </section>
-                <div className="conf icon">
-                    <img className="navbar__kart" src={kart} alt="User icon" />
-                    <span className="number">4</span>
-                    <span>Carrito</span>
-                </div>
-                <div className="conf">
-                    <img className="navbar__conf" src={conf} alt="Configuration icon" />
-                    <span>Ajustes</span>
-                </div>
             </nav>
         )
 }

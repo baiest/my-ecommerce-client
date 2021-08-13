@@ -82,7 +82,7 @@ class ProductInformation extends React.Component{
                 <div className="product__main">
                     <div className="product__images">
                         {this.images_product()}
-                        <img src={this.state.image} alt="main image" />
+                        <img src={this.state.image} alt="main product" />
                     </div>
                     <div className="product__information">
                         <h2>{product.product_name}</h2>

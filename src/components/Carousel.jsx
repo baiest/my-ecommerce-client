@@ -8,7 +8,7 @@ const Carousel = (props) => {
     const cards = props.data
     
     const moveSlider = (dir) => {
-        if (check >= cards.length - 1 || check < 0){
+        if (check >= cards.length - cards.length/3 || check < 0){
             setCheck(0)
         }else{
             setCheck(check + dir)
@@ -22,7 +22,7 @@ const Carousel = (props) => {
     })*/
     useEffect(() => {
         if(carousel){
-            carousel.scrollLeft = check * 200
+            carousel.scrollLeft = check * 450
         }else{
             setCarousel(document.getElementById(props.id))
         }

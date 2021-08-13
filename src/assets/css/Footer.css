@@ -1,0 +1,7 @@
+footer {
+    background: var(--navbar);
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,9 +1,17 @@
 .app {
     margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .container {
-    margin: auto 15%;
+    margin: 50px 5%;
+}
+
+.container p {
+    text-align: center;
 }
 
 .hidden {

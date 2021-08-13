@@ -1,0 +1,92 @@
+.login {
+    border: 2px solid var(--navbar);
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-width: 250px;
+    max-width: 350px;
+    margin: 10px auto;
+    padding: 30px;
+    height: 50%;
+    text-align: center;
+    color: var(--navbar);
+}
+
+.login h2 {
+    margin: 2px 0;
+}
+
+.login__error {
+    text-align: center;
+    background: lightcoral;
+    color: aliceblue;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.login__input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+    position: relative;
+}
+
+.login__input-label {
+    font-size: 25px;
+    position: absolute;
+    visibility: hidden;
+    transform: translateY(100%) scale(0.5);
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.login__input input:focus~.login__input-label,
+.login__input input:not(:placeholder-shown)~.login__input-label {
+    transform: translateY(0) scale(1);
+    visibility: visible;
+    opacity: 1;
+}
+
+.login__input input:focus::placeholder {
+    color: transparent;
+}
+
+.login__input input {
+    outline: none;
+    height: 35px;
+    font-size: 20px;
+    margin-top: 35px;
+    background: transparent;
+    padding: 5px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+}
+
+.login__input input::placeholder {
+    color: var(--navbar);
+}
+
+.login__submit {
+    width: 150px;
+    margin: auto;
+    background: var(--navbar);
+    color: var(--text);
+    width: 30%;
+    height: 50px;
+    outline: none;
+    border: 1px solid var(--navbar);
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+}
+
+.login__submit:hover {
+    background: var(--background);
+    color: var(--navbar);
+}

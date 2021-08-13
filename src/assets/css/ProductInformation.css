@@ -10,6 +10,7 @@
 .product__images {
     display: flex;
     justify-content: space-around;
+    height: 750px;
 }
 
 .product__images-mini {
@@ -59,7 +60,11 @@
     position: sticky;
     top: 0;
     text-align: center;
-    font-size: 25px;
+}
+
+.product__information p {
+    font-size: 40px;
+    margin: 5px;
 }
 
 @media (max-width: 720px) {

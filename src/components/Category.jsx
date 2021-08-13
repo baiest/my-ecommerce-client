@@ -1,7 +1,6 @@
 import React from 'react' 
 import { API_CATEGORIES } from '../providers/api'
 import axios from 'axios'
-import Error from './general/Error'
 import { Link } from 'react-router-dom'
 import '../assets/css/Category.css'
 class Category extends React.Component{
@@ -49,12 +48,9 @@ class Category extends React.Component{
     }
 
     categories() {
-        if (this.state.error){
-            return <Error message={this.state.error}/>
-        }
         return (
             <ul className="category__options">
-                {this.state.categories.map(c => (
+                {this.state.categories?.map(c => (
                 <Link key={c.category_id}  className="category__item" to={`/category/${this.normalizaRoute(c.category_name)}`}>
                     <li>{c.category_name}</li>
                 </Link>
