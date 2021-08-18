@@ -12,7 +12,6 @@
 
 .navbar__hero {
     margin: 20px;
-    font-size: 50px;
 }
 
 .icon {
@@ -34,15 +33,14 @@
 .icon .number {
     background: var(--background);
     color: var(--navbar);
-    width: 20px;
-    height: 20px;
-    padding: 2px;
+    padding: 5px;
     text-align: center;
-    border-radius: 50%;
+    border-radius: 25px;
     position: absolute;
-    right: 0px;
-    top: -2px;
-    font-size: 15px;
+    right: -60%;
+    top: -15%;
+    min-width: 25px;
+    height: 25px;
     font-weight: bold;
 }
 

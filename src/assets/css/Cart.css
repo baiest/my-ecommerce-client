@@ -1,0 +1,44 @@
+.cart {
+    padding: 0;
+    width: 40%;
+}
+
+.cart__product {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.cart__product :hover {
+    opacity: 0.6;
+}
+
+.cart__delete {
+    background: lightcoral;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+    color: var(--background);
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    font-weight: bold;
+    right: 0;
+    top: -10px;
+}
+
+.cart__delete :hover {
+    background: var(--background);
+    border: 1px solid lightcoral;
+    color: lightcoral;
+}
+
+.cart__pay {
+    background: lightblue;
+    width: 40%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 25px;
+    position: fixed;
+    right: 10%;
+}

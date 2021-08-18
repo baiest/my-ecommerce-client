@@ -6,7 +6,9 @@ import Footer from './Footer'
 import Main from './Main'
 import Login from './Login'
 import Search from './Search'
+import Cart from './Cart'
 import ProductInformation from './ProductInformation'
+import PrivateRoute from './general/PrivateRoute'
 
 import {Route, Switch} from 'react-router-dom'
 import { withCookies, Cookies } from "react-cookie";
@@ -28,6 +30,7 @@ class App extends React.Component{
         name: 'Ingresa',
         lastname: '',
       },
+      cartCount: 0,
       routes: [], //ARREGLO DE RUTAS PARA SEPARAR PRODUCTOS POR CATEGORIA
     }
     this.handleCategory = this.handleCategory.bind(this)  
@@ -55,9 +58,9 @@ class App extends React.Component{
             user:{
               name: response.data.user_name,
               lastname: response.data.user_lastname
-            }
+            },
+            cartCount: response.data.cart
           })
-          console.log(response.data)
       }catch(error){
           if(!axios.isCancel(error) && error.code !== 'ECONNABORTED'){
               this.setState({error: error.response?.data.error || error.message, loading: false, user_password: ''})
@@ -94,6 +97,8 @@ class App extends React.Component{
     }
     console.log(search)
   }
+
+  
   render() {
     const {name, lastname} = this.state.user
     return (
@@ -105,12 +110,14 @@ class App extends React.Component{
         category_selected={this.handleCategory}
         handleSearch={this.buttonSearch}
         cookie={this.props.cookies.get('token')}
+        cartCount={this.state.cartCount !== 0 && this.state.cartCount}
         logOut={this.logOut}/>
         <Search id="section__search" className="hidden"/>
         <Switch>
             <Route exact path={['/', '/category/:name_category']} render={() => <Main routes={this.state.routes}/>
               } />
             <Route exact path='/login' render={() => <Login createCookie={this.createCookie} cookie={this.props.cookies.get('token')}/>}/>
+            <PrivateRoute exact path='/client/cart' token={this.props.cookies.get('token')} render={() => <Cart cookie={this.props.cookies.get('token')}/>}/>
             <Route exact path='/product/:id' render={({match}) =>  <ProductInformation product_id={match.params.id} />} />)
         </Switch>
         <Footer/>
